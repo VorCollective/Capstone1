@@ -12,7 +12,7 @@ ________________________________________
    
 •	Python & Streamlit: To build a simple, beautiful, and free website that acts as the digital "library" or museum.
 
-•	JSON Files: Instead of a complex database, I use simple text files to store all the information. This is like a digital notebook that's easy for anyone to read, backup, and understand.
+•	JSON Files: Instead of a complex database, I used simple text files to store all the information. This is like a digital notebook that's easy for anyone to read, backup, and understand.
 
 •	Structured Data: We organize information in a smart, consistent way (like always noting the tribe, the type of story, and who told it) so it's useful for researchers and future projects.
 ________________________________________
@@ -41,8 +41,8 @@ ________________________________________
 •	Global Connection: Provides a legitimate and respectful way for the Kenyan diaspora and global audience to connect with and learn about their heritage.
 ________________________________________
 5. How will you deploy your project?
-6. 
-a)	I will deploy it for free using Streamlit Community Cloud. The app gets a public web address (e.g., utamaduni-archive.streamlit.app) that anyone in the world can visit, for free, forever.
+ 
+a)	I will deploy it for free using Streamlit Community Cloud. The app gets a public web address (e.g., [(https://tamadunizetu-kenya.streamlit.app) that anyone in the world can visit, for free, forever.
 
 b)	The Data is Safe: All the stories and information are stored in simple JSON files that can be easily backed up on a USB drive, emailed, or printed out. The community will always have a copy.
 
