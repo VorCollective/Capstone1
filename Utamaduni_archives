@@ -17,12 +17,12 @@ st.set_page_config(
 st.markdown("""
 <style>
     :root {
-        --primary: #2E8B57;       /* Sea Green - Growth & Heritage */
-        --secondary: #FF6B35;     /* Terracotta - Earth & Tradition */
-        --accent: #4A90E2;        /* Kenyan Sky Blue */
-        --dark: #2C3E50;          /* Deep Blue - Wisdom */
-        --light: #F8F9FA;         /* Light background */
-        --success: #27AE60;       /* Success green */
+        --primary: #2E8B57;      
+        --secondary: #FF6B35;     
+        --accent: #4A90E2;        
+        --dark: #2C3E50;          
+        --light: #F8F9FA;         
+        --success: #27AE60;       
     }
     
     .main-header {font-size: 3rem; color: var(--primary); text-align: center; font-weight: bold; margin-bottom: 0;}
