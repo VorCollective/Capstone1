@@ -4,7 +4,7 @@ Project Description: Kenya’s tribal Archives (‘Utamaduni Archives’)
    
 Kenya's rich cultural history—stories, songs, traditions, and knowledge—is primarily held by elders and communities. This knowledge is at risk of being lost forever due to modernization and the passing of older generations. When this history is recorded, it's often done by outsiders (universities, researchers, documentaries) who sometimes control the copyright, meaning the communities themselves can't access or control their own stories.
 
-This project solves: "How can we help Kenyan communities digitally preserve their own history on their own terms, and share it with the world without giving up their ownership?"
+This project solves: "How can I help Kenyan communities digitally preserve their own history on their own terms, and share it with the world without giving up their ownership?"
 
 NB://	This is in-line with the Bottom-Up economic agenda of the current regime to grant community-led solutions to the tourism industry and to ensure that tourism proceeds trickle down to the rightful owners of the products through copyrights.
 ________________________________________
@@ -12,7 +12,7 @@ ________________________________________
    
 •	Python & Streamlit: To build a simple, beautiful, and free website that acts as the digital "library" or museum.
 
-•	JSON Files: Instead of a complex database, we use simple text files to store all the information. This is like a digital notebook that's easy for anyone to read, backup, and understand.
+•	JSON Files: Instead of a complex database, I use simple text files to store all the information. This is like a digital notebook that's easy for anyone to read, backup, and understand.
 
 •	Structured Data: We organize information in a smart, consistent way (like always noting the tribe, the type of story, and who told it) so it's useful for researchers and future projects.
 ________________________________________
