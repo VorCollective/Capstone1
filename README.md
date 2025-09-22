@@ -1,5 +1,20 @@
+---------
+## Table of contents
 
-# Utamaduni Archives: Safeguarding Kenya's Tribal Heritage
+* Project Overview
+
+* User Experience Features
+
+* Core Functionality
+
+* Technical Implementation
+
+* Deployment Guide
+
+* Acknowledgements
+-----------
+
+## Utamaduni Archives: Safeguarding Kenya's Tribal Heritage
 
 
 The Utamaduni Archives is a digital platform that empowers Kenyan communities to preserve, manage, and share their cultural heritage—like stories, songs, and traditions—on their own terms. Instead of storing the content itself, it acts as a "digital library card" system, cataloging information about each cultural artifact and linking to where the community chooses to host it. Most importantly, it allows communities to set their own rules for who can access their culture and how it can be used.
