@@ -186,8 +186,9 @@ Consistent experience across all devices
 
 
 ## Core Functionality
-Core Features (Currently Implemented)
+
 1. Digital Library Catalog System
+    
 Browse Archive: Search and filter cultural artifacts by tribe, type, language, region
 
 Artifact Metadata Storage: Stores information about cultural items (not the items themselves)
@@ -195,6 +196,7 @@ Artifact Metadata Storage: Stores information about cultural items (not the item
 External Content Linking: Points to where communities host their actual content (YouTube, etc.)
 
 2. Community Control & Permissions
+   
 Community Portals: Dedicated dashboards for each tribe/community
 
 Custom Permission Settings: Communities set usage rules (educational use, request permission, etc.)
@@ -202,6 +204,7 @@ Custom Permission Settings: Communities set usage rules (educational use, reques
 Content Submission Wizard: Guided process for adding new cultural materials
 
 3. Cultural Preservation Tools
+   
 Structured Data Organization: Consistent metadata (tribe, storyteller, type, context)
 
 Context Preservation: Saves the story behind each artifact, not just the artifact itself
@@ -209,6 +212,7 @@ Context Preservation: Saves the story behind each artifact, not just the artifac
 JSON-based Storage: Simple, portable data format that's easy to backup
 
 4. Access & Discovery
+   
 Multi-page Interface: Organized sections for browsing, submitting, learning
 
 Advanced Search: Filter by multiple criteria for researchers and users
@@ -216,6 +220,7 @@ Advanced Search: Filter by multiple criteria for researchers and users
 Responsive Design: Works on desktop and mobile devices
 
 5. Basic User Management
+   
 Different User Types: Community admins, researchers, general public
 
 Permission-based Access: Different views based on user role
@@ -223,6 +228,7 @@ Permission-based Access: Different views based on user role
 Contact System: Direct communication for permission requests
 
 Technical Features
+
 Streamlit-based Web Interface: Free, beautiful, and accessible
 
 JSON Database: No complex database required
@@ -232,6 +238,7 @@ Free Deployment: Hosted on Streamlit Community Cloud
 Simple Backup: Data can be saved to USB, email, or print
 
 Key Differentiating Features
+
 Community-Owned: Communities keep copyright and control
 
 Metadata-Focused: Stores information about content, not content itself
