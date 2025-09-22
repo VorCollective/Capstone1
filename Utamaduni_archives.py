@@ -107,7 +107,7 @@ kenyan_tribes = [
     {"id": "kamba", "name": "Kamba", "alternative_names": "Akamba", "region": "Eastern Kenya", "description": "A Bantu ethnic group known for wood carving, music, and rich storytelling traditions...", "contact_community": "Kamba Elders"},
     {"id": "maasai", "name": "Maasai", "alternative_names": "Ilmaasai", "region": "Rift Valley", "description": "A Nilotic ethnic group known for their distinctive culture, pastoral traditions, and beadwork...", "contact_community": "Maasai Elders"},
     {"id": "samburu", "name": "Samburu", "alternative_names": "Loikop, Kore", "region": "Rift Valley", "description": "A Nilotic ethnic group known for their distinctive culture, pastoral traditions, and beadwork. Also referred to as The Butterfly People due to the colorful dressing..", "contact_community": "Samburu Elders"},
-    {"id": "meru", "name": "Meru", "alternative_names": "Ameru", "region": "Central", "description": "Bantu ethnic group that inhabit the Meru region of Kenya. The region is situated on the fertile lands of the north and eastern slopes of Mount Kenya in the former Eastern Province. The word Meru means 'shining light' in the Meru language.", "contact_community": "Njuri Ncheke"},
+    {"id": "meru", "name": "Meru", "alternative_names": "Ameru", "region": "Central", "description": "Bantu ethnic group that inhabit the Meru region of Kenya. The region is situated on the fertile lands of the north and eastern slopes of Mount Kenya in the former Eastern Province. The word Meru means 'shining light' in the Meru language.", "contact_community": "Njuri Ncheke"}
 ]
 
 # Load existing data or initialize with default data
