@@ -112,7 +112,7 @@ pandas
 
 GitHub repository (VorCollective/utamaduni-archives).
 
-Branch: main or master.
+Branch: main.
 
 Main file path: /app.py
 
