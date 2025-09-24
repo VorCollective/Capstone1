@@ -5,6 +5,16 @@ from pathlib import Path
 import uuid
 import os
 from typing import Dict, List, Any
+import difflib
+
+@st.cache_data(ttl=3600)  # Cache for 1 hour instead of default
+def load_json_data(file_path: str, default_data: List[Any] = None) -> List[Any]:
+    # Your existing function code
+
+# Clear all caches on deployment
+    st.cache_data.clear()
+    st.cache_resource.clear()
+
 
 # Page Configuration - USING KENYAN FLAG AS ICON
 st.set_page_config(
@@ -17,12 +27,12 @@ st.set_page_config(
 st.markdown("""
 <style>
     :root {
-        --primary: #2E8B57;       /* Sea Green - Growth & Heritage */
-        --secondary: #FF6B35;     /* Terracotta - Earth & Tradition */
-        --accent: #4A90E2;        /* Kenyan Sky Blue */
-        --dark: #2C3E50;          /* Deep Blue - Wisdom */
-        --light: #F8F9FA;         /* Light background */
-        --success: #27AE60;       /* Success green */
+        --primary: #2E8B57;      
+        --secondary: #FF6B35;     
+        --accent: #4A90E2;        
+        --dark: #2C3E50;          
+        --light: #F8F9FA;         
+        --success: #27AE60;       
     }
     
     .main-header {font-size: 3rem; color: var(--primary); text-align: center; font-weight: bold; margin-bottom: 0;}
@@ -106,7 +116,8 @@ kenyan_tribes = [
     {"id": "luhya", "name": "Luhya", "alternative_names": "Abaluhya", "region": "Western Kenya", "description": "A Bantu ethnic group comprising many sub-communities with diverse cultural practices...", "contact_community": "Luhya Council of Elders"},
     {"id": "kamba", "name": "Kamba", "alternative_names": "Akamba", "region": "Eastern Kenya", "description": "A Bantu ethnic group known for wood carving, music, and rich storytelling traditions...", "contact_community": "Kamba Elders"},
     {"id": "maasai", "name": "Maasai", "alternative_names": "Ilmaasai", "region": "Rift Valley", "description": "A Nilotic ethnic group known for their distinctive culture, pastoral traditions, and beadwork...", "contact_community": "Maasai Elders"},
-    {"id": "samburu", "name": "Samburu", "alternative_names": "Loikop, Kore", "region": "Rift Valley", "description": "A Nilotic ethnic group known for their distinctive culture, pastoral traditions, and beadwork. Also referred to as The Butterfly People due to the colorful dressing..", "contact_community": "Samburu Elders"}
+    {"id": "samburu", "name": "Samburu", "alternative_names": "Loikop, Kore", "region": "Rift Valley", "description": "A Nilotic ethnic group known for their distinctive culture, pastoral traditions, and beadwork. Also referred to as The Butterfly People due to the colorful dressing..", "contact_community": "Samburu Elders"},
+    {"id": "meru", "name": "Meru", "alternative_names": "Ameru", "region": "Central", "description": "Bantu ethnic group that inhabit the Meru region of Kenya. The region is situated on the fertile lands of the north and eastern slopes of Mount Kenya in the former Eastern Province. The word Meru means 'shining light' in the Meru language.", "contact_community": "Njuri Ncheke"}
 ]
 
 # Load existing data or initialize with default data
@@ -240,6 +251,13 @@ else:
         Assets: {len(assets_data)}
         """)
 
+# Fuzzy match helper function
+def fuzzy_match(query: str, text: str, threshold: float = 0.6) -> bool:
+    if not query:
+        return True
+    score = difflib.SequenceMatcher(None, query.lower(), text.lower()).ratio()
+    return score >= threshold
+
 # SECTION 1: COMMUNITY CONTRIBUTION PORTAL
 st.markdown('<p class="sub-header">🌱 Contribute to Our Heritage</p>', unsafe_allow_html=True)
 st.markdown('<div class="info-banner">Share your community\'s cultural treasures. All contributions are preserved with the utmost respect for ownership and tradition.</div>', unsafe_allow_html=True)
@@ -339,6 +357,40 @@ with st.form("asset_contribution_form", clear_on_submit=True):
             st.markdown(f'<div class="success-banner">🇰🇪 Asante sana! Thank you for your contribution! Asset "{asset_title}" has been added to the archive. Your community\'s terms have been recorded.</div>', unsafe_allow_html=True)
             st.balloons()
 
+# Public add missing tribe section
+st.markdown('<p class="sub-header">➕ Add Missing Community</p>', unsafe_allow_html=True)
+st.markdown('<div class="info-banner">If your community is not listed, submit it here for inclusion in the archive.</div>', unsafe_allow_html=True)
+
+with st.form("add_tribe_form_public", clear_on_submit=True):
+    tribe_name = st.text_input("Community Name*")
+    alt_names = st.text_input("Alternative Names (comma-separated)")
+    region = st.text_input("Primary Region*")
+    description = st.text_area("Description*")
+    contact = st.text_input("Contact/Governance Body (e.g., Council of Elders)")
+    
+    submit_tribe = st.form_submit_button("🌿 Submit Community")
+    
+    if submit_tribe:
+        if not all([tribe_name, region, description]):
+            st.markdown('<div class="warning-banner">Please fill in all required fields (*).</div>', unsafe_allow_html=True)
+        else:
+            # Check for duplicates
+            if any(t["name"].lower() == tribe_name.lower() for t in tribes_data):
+                st.markdown('<div class="warning-banner">This community already exists in the archive.</div>', unsafe_allow_html=True)
+            else:
+                new_tribe = {
+                    "id": tribe_name.lower().replace(" ", "_"),
+                    "name": tribe_name,
+                    "alternative_names": alt_names,
+                    "region": region,
+                    "description": description,
+                    "contact_community": contact
+                }
+                tribes_data.append(new_tribe)
+                save_json_data(TRIBES_FILE, tribes_data)
+                st.markdown(f'<div class="success-banner">🇰🇪 Asante sana! Community "{tribe_name}" has been added to the archive.</div>', unsafe_allow_html=True)
+                st.balloons()
+
 kenyan_divider()
 
 # SECTION 2: PUBLIC EXPLORATION PORTAL
@@ -359,6 +411,9 @@ else:
     with col3:
         sort_option = st.selectbox("Sort by", ["Newest First", "Oldest First"])
 
+    # Search input
+    search_query = st.text_input("Search by Title, Description, or Narrative (Fuzzy Search)")
+
     # Filter the assets based on user selection
     filtered_assets = assets_data.copy()
 
@@ -366,6 +421,13 @@ else:
         filtered_assets = [asset for asset in filtered_assets if asset.get("tribe_name") == tribe_filter]
     if type_filter != "All Types":
         filtered_assets = [asset for asset in filtered_assets if asset["asset_type"] == type_filter]
+
+    if search_query:
+        filtered_assets = [asset for asset in filtered_assets if (
+            fuzzy_match(search_query, asset.get('title', '')) or
+            fuzzy_match(search_query, asset.get('description', '')) or
+            fuzzy_match(search_query, asset.get('narrative_context', ''))
+        )]
 
     # Sort the assets
     if sort_option == "Newest First":
@@ -453,8 +515,20 @@ kenyan_divider()
 # SECTION 3: TRIBAL OVERVIEW
 st.markdown('<p class="sub-header">👥 Kenyan Communities</p>', unsafe_allow_html=True)
 
+# Tribe search
+tribe_search_query = st.text_input("Search Communities by Name, Alternative Names, or Description (Fuzzy Search)")
+
+# Filter tribes
+filtered_tribes = tribes_data.copy()
+if tribe_search_query:
+    filtered_tribes = [tribe for tribe in filtered_tribes if (
+        fuzzy_match(tribe_search_query, tribe.get('name', '')) or
+        fuzzy_match(tribe_search_query, tribe.get('alternative_names', '')) or
+        fuzzy_match(tribe_search_query, tribe.get('description', ''))
+    )]
+
 # Display tribes in a clean format
-for tribe in tribes_data:
+for tribe in filtered_tribes:
     with st.expander(f"🌍 {tribe['name']} - {tribe['region']}", expanded=False):
         st.markdown(f"**🔤 Alternative Names:** {tribe.get('alternative_names', 'N/A')}")
         st.markdown(f"**📋 Description:** {tribe.get('description', 'No description available.')}")
