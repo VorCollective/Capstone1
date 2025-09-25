@@ -3,19 +3,28 @@
 <img width="849" height="375" alt="3" src="https://github.com/user-attachments/assets/466f4128-e56e-4e31-9c9f-08ba3280b8ab" />
 
 ---------
-## Table of contents
 
-* Project Overview
 
-* User Experience Features
 
-* Core Functionality
+<img width="4888" height="4090" alt="Utamaduni_archives_Flowchart" src="https://github.com/user-attachments/assets/6b9b020c-a998-49b9-88ee-71a609a7192d" />
 
-* Technical Implementation
+-------------
 
-* Deployment Guide
 
-* Acknowledgements
+
+* # Table of contents
+
+* ## Project Overview
+
+* ## User Experience Features
+
+* ## Core Functionality
+
+* ## Technical Implementation
+
+* ## Deployment Guide
+
+* ## Acknowledgements
 -----------
 
 ## Utamaduni Archives: Safeguarding Kenya's Tribal Heritage
