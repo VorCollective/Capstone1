@@ -12,19 +12,107 @@
 
 
 
-* # Table of contents
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-background text-text transition-colors duration-300">
+    <header class="py-4 px-6 flex justify-between items-center">
+        <h1 class="text-2xl font-bold">Utamaduni Archives</h1>
+        <button id="theme-toggle" class="p-2 rounded-full bg-primary text-white hover:bg-primary-dark">
+            <span class="sun-icon">🌞</span>
+            <span class="moon-icon hidden">🌙</span>
+        </button>
+    </header>
+    <main class="container mx-auto px-4 py-8">
+        <h2 class="text-3xl font-semibold mb-6">Table of Contents</h2>
+        <nav class="toc">
+            <ul class="space-y-2">
+                <li>
+                    <a href="#overview" class="text-primary hover:text-primary-dark font-medium">Utamaduni Archives: Safeguarding Kenya's Tribal Heritage</a>
+                </li>
+                <li>
+                    <button class="toggle-section text-primary hover:text-primary-dark font-medium flex items-center w-full text-left">
+                        Who It Is For
+                        <svg class="w-4 h-4 ml-2 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <ul class="sub-menu hidden pl-4 space-y-1">
+                        <li><a href="#kenyan-communities" class="text-text-light hover:text-accent-blue">Kenyan Communities & Elders</a></li>
+                        <li><a href="#cultural-advocates" class="text-text-light hover:text-accent-blue">Cultural Rights Advocates & Researchers</a></li>
+                        <li><a href="#kenyan-diaspora" class="text-text-light hover:text-accent-blue">The Kenyan Diaspora & Global Audience</a></li>
+                        <li><a href="#content-creators" class="text-text-light hover:text-accent-blue">Content Creators & Institutions</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="toggle-section text-primary hover:text-primary-dark font-medium flex items-center w-full text-left">
+                        Deployment
+                        <svg class="w-4 h-4 ml-2 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <ul class="sub-menu hidden pl-4 space-y-1">
+                        <li><a href="#prerequisites" class="text-text-light hover:text-accent-blue">Prerequisites</a></li>
+                        <li><a href="#deployment-instructions" class="text-text-light hover:text-accent-blue">Step-by-Step Deployment Instructions</a></li>
+                        <li><a href="#requirements-txt" class="text-text-light hover:text-accent-blue">Requirements.txt File</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#acknowledgements" class="text-primary hover:text-primary-dark font-medium">Acknowledgements</a>
+                </li>
+                <li>
+                    <button class="toggle-section text-primary hover:text-primary-dark font-medium flex items-center w-full text-left">
+                        User Experience Features
+                        <svg class="w-4 h-4 ml-2 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <ul class="sub-menu hidden pl-4 space-y-1">
+                        <li><a href="#light-dark-mode" class="text-text-light hover:text-accent-blue">Light/Dark Mode Toggle</a></li>
+                        <li><a href="#live-previews" class="text-text-light hover:text-accent-blue">Live Previews</a></li>
+                        <li><a href="#fullscreen-mode" class="text-text-light hover:text-accent-blue">Fullscreen Mode</a></li>
+                        <li><a href="#cross-platform" class="text-text-light hover:text-accent-blue">Cross-Platform</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="toggle-section text-primary hover:text-primary-dark font-medium flex items-center w-full text-left">
+                        Core Functionality
+                        <svg class="w-4 h-4 ml-2 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <ul class="sub-menu hidden pl-4 space-y-1">
+                        <li><a href="#digital-library" class="text-text-light hover:text-accent-blue">Digital Library Catalog System</a></li>
+                        <li><a href="#community-control" class="text-text-light hover:text-accent-blue">Community Control & Permissions</a></li>
+                        <li><a href="#cultural-preservation" class="text-text-light hover:text-accent-blue">Cultural Preservation Tools</a></li>
+                        <li><a href="#access-discovery" class="text-text-light hover:text-accent-blue">Access & Discovery</a></li>
+                        <li><a href="#user-management" class="text-text-light hover:text-accent-blue">Basic User Management</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#technical-features" class="text-primary hover:text-primary-dark font-medium">Technical Features</a>
+                </li>
+                <li>
+                    <a href="#key-differentiating-features" class="text-primary hover:text-primary-dark font-medium">Key Differentiating Features</a>
+                </li>
+                <li>
+                    <a href="https://lebensons.hashnode.dev/preserving-kenyas-cultural-soul-my-journey-building-the-utamaduni-archive" class="text-primary hover:text-primary-dark font-medium">Technical Article</a>
+                </li>
+                <li>
+                    <a href="https://tamadunizetu-kenya.streamlit.app/" class="text-primary hover:text-primary-dark font-medium">Utamaduni Archive Live Link</a>
+                </li>
+            </ul>
+        </nav>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
 
-* ## Project Overview
-
-* ## User Experience Features
-
-* ## Core Functionality
-
-* ## Technical Implementation
-
-* ## Deployment Guide
-
-* ## Acknowledgements
 -----------
 
 ## Utamaduni Archives: Safeguarding Kenya's Tribal Heritage
@@ -260,4 +348,7 @@ Economic Empowerment: Creates pathways for ethical cultural commerce
 
 Bottom-Up Approach: Aligns with Kenya's community-led development model
 
-
+# Technical article
+https://lebensons.hashnode.dev/preserving-kenyas-cultural-soul-my-journey-building-the-utamaduni-archive
+# Utamaduni Archive live link
+https://tamadunizetu-kenya.streamlit.app/
