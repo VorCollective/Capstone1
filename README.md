@@ -109,7 +109,6 @@
             </ul>
         </nav>
     </main>
-    <script src="script.js"></script>
 </body>
 </html>
 
